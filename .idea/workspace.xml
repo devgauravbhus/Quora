@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/AnswerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/QuestionEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trello_quora.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Quora.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/AdminControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/AdminControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/CommonControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/CommonControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-db/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-db/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-db/src/main/resources/config/localhost.properties" beforeDir="false" afterPath="$PROJECT_DIR$/quora-db/src/main/resources/config/localhost.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +53,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -100,21 +92,22 @@
     <property name="project.structure.side.proportion" value="0.6643678" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Optus\Trello_quora\quora-api\src\main\resources\endpoints" />
-      <recent name="C:\Optus\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\entity" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.upgrad.quora.service.business" />
-      <recent name="com.upgrad.quora.api.controller" />
-      <recent name="com.upgrad.quora.service.dao" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
       <recent name="E:\Trello_quora\quora-api\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upgrad.quora.service.entity" />
+      <recent name="com.upgrad.quora.service.business" />
+      <recent name="com.upgrad.quora.api.controller" />
+      <recent name="com.upgrad.quora.service.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Optus\Trello_quora\quora-api\src\main\resources\endpoints" />
+      <recent name="C:\Optus\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\entity" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdminControllerTest">
+  <component name="RunManager" selected="Spring Boot.QuoraApiApplication">
     <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="quora-api" />
       <extension name="coverage">
@@ -197,10 +190,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdminControllerTest" />
-        <item itemvalue="JUnit.CommonControllerTest" />
-        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Spring Boot.QuoraApiApplication" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.CommonControllerTest" />
+        <item itemvalue="JUnit.AdminControllerTest" />
         <item itemvalue="JUnit.AnswerControllerTest" />
       </list>
     </recent_temporary>
@@ -253,6 +246,8 @@
       <workItem from="1581606597093" duration="5712000" />
       <workItem from="1581693565253" duration="260000" />
       <workItem from="1581695737201" duration="257000" />
+      <workItem from="1581871425375" duration="235000" />
+      <workItem from="1581872198330" duration="676000" />
     </task>
     <servers />
   </component>
@@ -260,10 +255,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="233" y="3" key="#Assign_Data_Sources" timestamp="1581448418388">
+    <state x="233" y="3" key="#Assign_Data_Sources" timestamp="1581872314927">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="3" key="#Assign_Data_Sources/0.0.1280.680@0.0.1280.680" timestamp="1581448418388" />
+    <state x="233" y="3" key="#Assign_Data_Sources/0.0.1280.680@0.0.1280.680" timestamp="1581872314927" />
     <state x="233" y="3" key="#SQL_Resolution_Scopes" timestamp="1581430966802">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -276,10 +271,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.680@0.0.1280.680" timestamp="1581567950652" />
-    <state x="446" y="35" key="#com.intellij.ide.util.MemberChooser" timestamp="1581436825600">
+    <state x="446" y="35" key="#com.intellij.ide.util.MemberChooser" timestamp="1581872905650">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="35" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1581436825600" />
+    <state x="446" y="35" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1581872905650" />
     <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581431184065">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -300,38 +295,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581610188784" />
-    <state width="1237" height="447" key="GridCell.Tab.0.bottom" timestamp="1581614723214">
+    <state width="1237" height="496" key="GridCell.Tab.0.bottom" timestamp="1581871660003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581614723214" />
-    <state width="1237" height="447" key="GridCell.Tab.0.center" timestamp="1581614723213">
+    <state width="1237" height="496" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581871660003" />
+    <state width="1237" height="496" key="GridCell.Tab.0.center" timestamp="1581871660003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581614723213" />
-    <state width="1237" height="447" key="GridCell.Tab.0.left" timestamp="1581614723212">
+    <state width="1237" height="496" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581871660003" />
+    <state width="1237" height="496" key="GridCell.Tab.0.left" timestamp="1581871660002">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581614723212" />
-    <state width="1237" height="447" key="GridCell.Tab.0.right" timestamp="1581614723214">
+    <state width="1237" height="496" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581871660002" />
+    <state width="1237" height="496" key="GridCell.Tab.0.right" timestamp="1581871660003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581614723214" />
-    <state width="1237" height="447" key="GridCell.Tab.1.bottom" timestamp="1581608394897">
+    <state width="1237" height="496" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581871660003" />
+    <state width="1237" height="496" key="GridCell.Tab.1.bottom" timestamp="1581871660004">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581608394897" />
-    <state width="1237" height="447" key="GridCell.Tab.1.center" timestamp="1581608394897">
+    <state width="1237" height="496" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581871660004" />
+    <state width="1237" height="496" key="GridCell.Tab.1.center" timestamp="1581871660004">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1581608394897" />
-    <state width="1237" height="447" key="GridCell.Tab.1.left" timestamp="1581608394897">
+    <state width="1237" height="496" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1581871660004" />
+    <state width="1237" height="496" key="GridCell.Tab.1.left" timestamp="1581871660003">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1581608394897" />
-    <state width="1237" height="447" key="GridCell.Tab.1.right" timestamp="1581608394897">
+    <state width="1237" height="496" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1581871660003" />
+    <state width="1237" height="496" key="GridCell.Tab.1.right" timestamp="1581871660004">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="447" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1581608394897" />
+    <state width="1237" height="496" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1581871660004" />
     <state width="1237" height="235" key="GridCell.Tab.2.bottom" timestamp="1581574634938">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -360,10 +355,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="82" height="441" key="SqlResolveConfigurable/0.0.1280.680@0.0.1280.680" timestamp="1581430966541" />
-    <state x="349" y="170" key="com.intellij.ide.util.TipDialog" timestamp="1581695738005">
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2" timestamp="1581872931951">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="349" y="170" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581695738005" />
+    <state x="233" y="78" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581872931951" />
+    <state x="349" y="170" key="com.intellij.ide.util.TipDialog" timestamp="1581872205171">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="349" y="170" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581872205171" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581607306864">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
