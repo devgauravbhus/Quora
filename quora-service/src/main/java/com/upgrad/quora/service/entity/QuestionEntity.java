@@ -32,7 +32,6 @@ public class QuestionEntity implements Serializable {
     private Integer id;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "USER_ID")
     private UserEntity user;
 
