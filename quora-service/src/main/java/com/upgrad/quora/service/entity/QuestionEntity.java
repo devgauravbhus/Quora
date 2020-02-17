@@ -11,13 +11,18 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "question", schema = "public")
-@NamedQueries({
-        @NamedQuery(name = "userAuthTokenByAccessToken" , query = "select ut from UserAuthTokenEntity ut where ut.accessToken = :accessToken ")
-})
+@NamedQueries(
+        {
+                @NamedQuery(name = "getAll", query = "select q from QuestionEntity q"),
+                @NamedQuery(name = "questionByUuid", query = "select q from QuestionEntity q where q.uuid=:uuid"),
+                @NamedQuery(name = "getAllQuestionByUser", query = "select q from QuestionEntity q where q.user.uuid=:user_uuid"),
+        }
+)
+
 public class QuestionEntity implements Serializable {
 
 
@@ -68,11 +73,11 @@ public class QuestionEntity implements Serializable {
         this.uuid = uuid;
     }
 
-    public ZonedDateTime getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(ZonedDateTime date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -83,7 +88,7 @@ public class QuestionEntity implements Serializable {
 
     @Column(name = "DATE")
     @NotNull
-    private ZonedDateTime date;
+    private LocalDateTime date;
 
     @Override
     public boolean equals(Object obj) {
