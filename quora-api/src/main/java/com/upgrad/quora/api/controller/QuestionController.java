@@ -61,9 +61,9 @@ public class QuestionController {
                 QuestionEntity questionEntity = new QuestionEntity();
                 questionEntity.setUuid(questionId);
                 questionEntity.setContent(questionEditRequest.getContent());
-                questionEntity = questionBusinessService.updateQuestion(questionEntity,authorization);
-                if (questionEntity != null) {
-                    questionResponse.setId(questionEntity.getUuid());
+                final QuestionEntity questionEntity1 = questionBusinessService.updateQuestion(questionEntity,authorization);
+                if (questionEntity1 != null) {
+                    questionResponse.setId(questionEntity1.getUuid());
                     questionResponse.setStatus("QUESTION EDITED");
                 }
                 return new ResponseEntity<QuestionEditResponse>(questionResponse, HttpStatus.OK);
@@ -73,7 +73,7 @@ public class QuestionController {
     @RequestMapping(method = RequestMethod.DELETE, path = "/question/delete/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@PathVariable("questionId") String questionId, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, UserNotFoundException, InvalidQuestionException {
         QuestionDeleteResponse questionResponse = new QuestionDeleteResponse();
-                QuestionEntity questionEntity = questionBusinessService.deleteQuestion(questionId,authorization);
+                final QuestionEntity questionEntity = questionBusinessService.deleteQuestion(questionId,authorization);
                 if (questionEntity != null) {
                     questionResponse.setId(questionEntity.getUuid());
                     questionResponse.setStatus("QUESTION DELETED");

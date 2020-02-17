@@ -4,18 +4,21 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "answer", schema = "public")
-
+@NamedQueries(
+        {
+                @NamedQuery(name = "answerByUuid", query = "select a from AnswerEntity a where a.uuid=:uuid"),
+                @NamedQuery(name = "getAnswerByQuestion", query = "select a from AnswerEntity a where a.question.uuid=:question_uuid"),
+        }
+)
 public class AnswerEntity implements Serializable {
 
 
@@ -25,12 +28,10 @@ public class AnswerEntity implements Serializable {
     private Integer id;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "USER_ID")
     private UserEntity user;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "QUESTION_ID")
     private QuestionEntity question;
 
@@ -63,11 +64,11 @@ public class AnswerEntity implements Serializable {
         this.uuid = uuid;
     }
 
-    public ZonedDateTime getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(ZonedDateTime date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -94,7 +95,7 @@ public class AnswerEntity implements Serializable {
 
     @Column(name = "DATE")
     @NotNull
-    private ZonedDateTime date;
+    private LocalDateTime date;
 
     @Override
     public boolean equals(Object obj) {
