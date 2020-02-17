@@ -21,7 +21,7 @@ import java.io.Serializable;
         }
 )
 
-public class UserEntity implements Serializable{
+public class UserEntity extends UserAuthTokenEntity implements Serializable{
 
     @Id
     @Column(name = "ID")

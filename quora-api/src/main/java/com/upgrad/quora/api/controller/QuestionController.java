@@ -5,7 +5,6 @@ import com.upgrad.quora.api.model.*;
 import com.upgrad.quora.service.business.CommonBusinessService;
 import com.upgrad.quora.service.business.QuestionBusinessService;
 import com.upgrad.quora.service.entity.QuestionEntity;
-import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserAuthTokenEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
@@ -30,8 +29,7 @@ public class QuestionController {
     private QuestionBusinessService questionBusinessService;
     @Autowired
     private CommonBusinessService commonBusinessService;
-    //This endpoint is used to create Question in the QuoraApplication. Any user can go and access this endpoint and create a question
-    //This endpoint requests for the attributes in QuestionRequest and accessToken in the authorization header	    //This endpoint requests for the attributes in QuestionRequest and accessToken in the authorization heade
+
     @RequestMapping(method = RequestMethod.POST, path = "/question/create", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionResponse> createQustion(QuestionRequest questionRequest, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, UserNotFoundException {
 
@@ -61,8 +59,7 @@ public class QuestionController {
 
 
     }
-    //This endpoint is see all the questions posted in the quora application
-    //This endpoint is accessed by any user by just providing the access token as input in the authorization header	    //This endpoint is accessed by any user by just providing the access token as input in the authorization header
+
     @RequestMapping(method = RequestMethod.GET, path = "/question/all", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionResponse> getAllQustion(@RequestHeader("authorization") String authorization) throws AuthorizationFailedException, UserNotFoundException {
         List<QuestionDetailsResponse> responseList = new ArrayList<QuestionDetailsResponse>();
@@ -70,7 +67,7 @@ public class QuestionController {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
         // Checking for the user associated to the access found in the header , returns exception if not found.
-        UserAuthTokenEntity userAuthEntity = commonBusinessService.getUser(authorization);
+        UserEntity userAuthEntity = commonBusinessService.getUser(authorization);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else {
@@ -102,7 +99,7 @@ public class QuestionController {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
         // Checking for the user associated to the access found in the header , returns exception if not found.
-        UserEntity userAuthEntity = commonBusinessService.getUser(authorizationToken);
+        UserEntity userAuthEntity = commonBusinessService.getUser(authorization);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else {
@@ -126,8 +123,7 @@ public class QuestionController {
             return new ResponseEntity<QuestionEditResponse>(questionResponse, HttpStatus.OK);
         }
     }
-    //The admin or the owner of the Question has a privilege of deleting the question
-    //This endpoint requests for the questionUuid to be deleted and the questionowner or admin accesstoken in the authorization header	    //This endpoint requests for the questionUuid to be deleted and the questionowner or admin accesstoken in the authorization header
+
     @RequestMapping(method = RequestMethod.DELETE, path = "/question/delete/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@PathVariable("questionId") String questionId, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, UserNotFoundException, InvalidQuestionException {
         QuestionDeleteResponse questionResponse = new QuestionDeleteResponse();
@@ -135,7 +131,7 @@ public class QuestionController {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
         // Checking for the user associated to the access found in the header , returns exception if not found.
-        UserAuthTokenEntity userAuthEntity = commonBusinessService.getUser();
+        UserEntity userAuthEntity = commonBusinessService.getUser(authorization);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else {
@@ -159,19 +155,16 @@ public class QuestionController {
         }
 
     }
-
-    //**getAllQuestionsByUser**//
-    //This method returns all the questions posted by user as a list and can be accessed by an user.
     @RequestMapping(method = RequestMethod.GET, path = "/question/all/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionResponse> getAllQustion(@PathVariable("userId") String userId, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, UserNotFoundException {
         List<QuestionDetailsResponse> responseList = new ArrayList<QuestionDetailsResponse>();
-        UserEntity userEntity = commonBusinessService.getUser(userId, authorization);
-        //getUserByUuid(userId);
+        UserEntity userEntity = commonBusinessService.getUser(userId);
+
         if (authorization == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
         // Checking for the user associated to the access found in the header , returns exception if not found.
-        UserAuthTokenEntity userAuthEntity = commonBusinessService.getUser(authorization);
+        UserEntity userAuthEntity = commonBusinessService.getUser(authorization);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else {
