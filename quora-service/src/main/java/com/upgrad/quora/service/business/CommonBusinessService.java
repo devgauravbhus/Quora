@@ -13,7 +13,7 @@ public class CommonBusinessService {
     @Autowired
     private UserDao userDao;
 
-    public UserEntity getUser(final String userUuid) throws UserNotFoundException, AuthorizationFailedException {
+    public UserEntity getUser(final String userUuid, final String authorizationToken) throws UserNotFoundException, AuthorizationFailedException {
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserAuthToken(authorizationToken);
         if (userAuthTokenEntity!=null) {
             if (userAuthTokenEntity.getLogoutAt()==null) {

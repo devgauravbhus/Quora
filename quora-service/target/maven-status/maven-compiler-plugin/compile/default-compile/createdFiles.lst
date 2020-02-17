@@ -6,7 +6,6 @@ com\upgrad\quora\service\business\UserBusinessService.class
 com\upgrad\quora\service\common\ErrorCode.class
 com\upgrad\quora\service\entity\QuestionEntity.class
 com\upgrad\quora\service\entity\UserEntity.class
-com\upgrad\quora\service\entity\Question.class
 com\upgrad\quora\service\business\JwtTokenProvider.class
 com\upgrad\quora\service\business\CommonBusinessService.class
 com\upgrad\quora\service\entity\UserAuthTokenEntity.class

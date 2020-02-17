@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public class QuestionDAO {
 
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -20,7 +21,11 @@ public class QuestionDAO {
     }
 
     public List<QuestionEntity> getAllQuestion() {
-        return entityManager.createNamedQuery("getAll", QuestionEntity.class).getResultList();
+        try {
+            return entityManager.createNamedQuery("getAll", QuestionEntity.class).getResultList();
+        } catch (NoResultException nre) {
+            return null;
+        }
     }
 
     public QuestionEntity getQuestionByUuid(String uuid) {

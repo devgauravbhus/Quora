@@ -1,5 +1,7 @@
 package com.upgrad.quora.service.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.OnDelete;
@@ -10,75 +12,49 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-/* CREATE TABLE public.question
-(
-    id integer NOT NULL DEFAULT nextval('question_id_seq'::regclass),
-    uuid character varying(200) COLLATE pg_catalog."default" NOT NULL,
-    content character varying(500) COLLATE pg_catalog."default" NOT NULL,
-    date timestamp without time zone NOT NULL,
-    user_id integer NOT NULL,
-    CONSTRAINT question_pkey PRIMARY KEY (id),
-    CONSTRAINT question_user_id_fkey FOREIGN KEY (user_id)
-        REFERENCES public.users (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE CASCADE
-        NOT VALID
-)
-WITH (
-    OIDS = FALSE
-)*/
 
 @Entity
-@Table(name = "QUESTION")
+@Table(name = "question", schema = "public")
 @NamedQueries(
         {
-                @NamedQuery(name = "getAll", query = "select q from QuestionEntity q "),
-                @NamedQuery(name = "questionByUuid", query = "select q from QuestionEntity q where q.uuid =:uuid"),
-                @NamedQuery(name = "getAllQuestionByUser", query = "select q from QuestionEntity q where q.user.uuid=:user_uuid")
+                @NamedQuery(name = "getAll", query = "select q from QuestionEntity q"),
+                @NamedQuery(name = "questionByUuid", query = "select q from QuestionEntity q where q.uuid=:uuid"),
+                @NamedQuery(name = "getAllQuestionByUser", query = "select q from QuestionEntity q where q.user.uuid=:user_uuid"),
         }
 )
+
 public class QuestionEntity implements Serializable {
+
 
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    @Column(name = "UUID")
-    @NotNull
-    @Size(max = 200)
-    private String uuid;
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "USER_ID")
+    private UserEntity user;
 
-    @Column(name = "content")
+    @Column(name = "CONTENT")
     @NotNull
     @Size(max = 500)
     private String content;
 
-
-    @Column(name = "DATE")
-    private LocalDateTime date;
-
-    @ManyToOne
-    @JoinColumn(name="USER_ID")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @NotNull
-    private UserEntity user;
-
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUuid() {
-        return uuid;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public String getContent() {
@@ -89,6 +65,14 @@ public class QuestionEntity implements Serializable {
         this.content = content;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public LocalDateTime getDate() {
         return date;
     }
@@ -97,13 +81,25 @@ public class QuestionEntity implements Serializable {
         this.date = date;
     }
 
-    public UserEntity getUser() {
-        return user;
+    @Column(name = "UUID")
+    @NotNull
+    @Size(max = 200)
+    private String uuid;
+
+    @Column(name = "DATE")
+    @NotNull
+    private LocalDateTime date;
+
+    @Override
+    public boolean equals(Object obj) {
+        return new EqualsBuilder().append(this, obj).isEquals();
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(this).hashCode();
     }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
